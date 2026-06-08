@@ -1,0 +1,18 @@
+{% extends 'userbase.html' %}
+{% block content %}
+{% load static %}
+<style>
+body{
+    background-image: none !important;
+    background-color: black;
+}
+</style>
+<h1 class='fg p-2 pt-5'>User Dashboard</h1> <hr>
+<p class='text-light display-6'> Hello, {{ user.username|default:'Guest' }}!  </p>
+<p class='text-justify fs-5'>From Your Account Dashboard You Can view Your ......... ,  
+and Manage Your  <a  href="#"> Account Details</a>
+and <a href="{% url 'password_change' %}">Password</a></p>
+{% include 'logout_form.html'%}
+<hr>
+
+{% endblock %}

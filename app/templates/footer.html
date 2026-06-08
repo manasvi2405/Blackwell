@@ -1,0 +1,91 @@
+{% load static %}
+
+<footer style="background-color: black;">
+  <div class="container px-5 py-5">
+    <h1 class="fw-bold mb-3 text-center d-block d-md-none" style="font-family: Witchwoode;">BlackWell</h1>
+    <div class="row text-white ms-4">
+
+      <!-- About -->
+      <div class="col-12 col-lg-6 mb-4">
+        <h2 class="fw-bold mb-3 d-none d-md-block" style="font-family: Witchwoode;">BlackWell</h2>
+        <p class="d-none d-md-block" style="font-family: morlique; max-width: 500px;">
+          BlackWell bring you a curated collection of stylish accessories designed to elevate your everyday look. Our mission is to blend quality, affordability, and modern trends into every piece you wear. We are passionate about helping you express your unique style through premium accessories.
+        </p>
+      </div>
+
+      <!-- Quick Links -->
+      <div class="col-6 col-lg-3 mb-4">
+        <h4 class="fw-bold mb-3">Quick Links</h4>
+        <ul class="list-unstyled">
+          <li class="mb-2 d-flex align-items-center">
+            <img src="{%static 'images/home.png'%}" height="20">
+            <a href="{%url 'home'%}" class="ms-2 text-white">Home</a>
+          </li>
+          <li class="mb-2 d-flex align-items-center">
+            <img src="{%static 'images/info.png'%}" height="20">
+            <a href="{%url 'about'%}" class="ms-2 text-white">About</a>
+          </li>
+          <li class="d-flex align-items-center">
+            <img src="{%static 'images/contact-us.png'%}" height="20">
+            <a href="{%url 'contact'%}" class="ms-2 text-white">Message Us</a>
+          </li>
+        </ul>
+      </div>
+
+      <!-- Contact -->
+      <div class="col-6 col-lg-3 mb-4">
+        <h4 class="fw-bold mb-3">Contact</h4>
+        <ul class="list-unstyled">
+
+          <li class="mb-2 d-flex align-items-center">
+            <img src="{% static 'images/telephone.png'%}" height="20">
+            <a href="tel:6283966041"><span class="ms-2">Call Us</span></a>
+          </li>
+
+          <li class="mb-2 d-flex align-items-center">
+            <img src="{% static 'images/email.png'%}" height="20">
+            <a href="mailto:blackwellsupport@gmail.com"
+               class="ms-2 text-white"
+               style="word-break: break-all;">
+               Mail Us
+            </a>
+          </li>
+
+          <li class="d-flex align-items-center">
+            <img src="{% static 'images/instagram.png'%}" height="20">
+            <a href="https://www.instagram.com/blackwell.in"
+               class="text-white ms-2"
+               target="_blank">
+               Instagram
+            </a>
+          </li>
+
+        </ul>
+      </div>
+
+    </div>
+  </div>
+</footer>
+
+<script src="{%static 'js/bootstrap.bundle.min.js'%}"></script>
+<script>
+window.addEventListener("pageshow", function (event) {
+    if (event.persisted) {
+        window.location.reload();
+    }
+});
+</script>
+
+<script>
+  const slider = document.querySelector('.category-slider');
+  const arrow = document.querySelector('.scroll-arrow');
+
+  arrow.addEventListener('click', () => {
+    slider.scrollBy({
+      left: 150,
+      behavior: 'smooth'
+    });
+  });
+</script>
+</body>
+</html>

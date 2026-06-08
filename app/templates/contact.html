@@ -1,0 +1,33 @@
+{% extends 'base.html'%}
+{% load static %}
+{% block "content"%}
+<div class="banner text-white">
+    <div class="container py-5">
+        <h1 class="text-uppercase text-center my-3" style="font-family: morlique;">Contact Us</h1>
+        <p class="text-center" style="font-family: morlique;"></p>
+    </div>
+    </div>
+
+<div class="dark">
+<main class="container py-5">
+<div class="row justify-content-evenly">
+    <div class="col-md-3 text-white">
+        <h1 class="mb-4">Get in Touch<br><span class="">With us</span></h1>
+        <p class="mb-4">Have questions or want to get in touch? Fill out the form below and we'll
+            get back to you as soon as possible.</p>
+    </div>
+    <div class="col-md-7 text-white">
+        {% include 'message.html' %}
+        <form method="post">
+            {% csrf_token %}
+            {{form}}
+            <div class="text-center">
+            <button type="submit" class="btn btn-dark bg-theme-dark mt-3 p-3 px-5 fw-bold rounded-pill">Send Message <span class="rounded-circle bg-light p-2 ms-2"><i class="bi bi-arrow-right text-dark"></i></span></button>
+            </div>
+        </form>
+    </div>
+</div>
+</main>
+</div>
+
+{% endblock %}

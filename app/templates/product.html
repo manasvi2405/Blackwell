@@ -1,0 +1,50 @@
+{% extends 'base.html'%}
+{% load static %}
+{% block "content"%}
+<div class="banner text-white">
+    <div class="container py-5">
+        <h1 class="text-uppercase text-center my-3" style="font-family: morlique;">{{product.name}}</h1>
+        <p class="text-center" style="font-family: morlique;">Premium Quality • Exclusive Design</p>
+    </div>
+    </div>
+
+<div class="bg-light">
+<section class="container py-5">
+    <div class="row">
+        <div class="col text-center">
+            <img src="/media/{{product.image1}}" alt="" height="350" width="320" class="rounded">
+        </div>
+        <div class="col">
+            <h1 style="font-family: morlique;" class="fw-bold text-dark">{{product.name}}</h1>
+            </p>
+    <p class="card-text fs-3 mb-0 text-dark"> <i class="bi bi-currency-rupee"></i> {{product.selling_price}}
+    <del class="text-secondary"><i class="bi bi-currency-rupee"></i> {{product.mrp}}</del>
+    </p>
+      <p class="ms-2 text-dark">Inclusive of all Taxes</p>
+      <p class="py-3 ms-2">
+        {% if product.in_stock %}
+        <span class="text-success fs-5 border border-dark p-2 rounded">Few Left</span>
+        <div class="d-flex">
+    <form action="{% url 'add_to_cart' product.id %}" method="post" style="display:inline;">
+        {% csrf_token %}
+        <button type="submit" class="btn btn-dark px-5">
+            Add to Bag
+            <img src="{% static 'images/shopping-bag.png'%}" height="25" width="25" class="ms-2 mb-1">
+        </button>
+    </form>
+
+    <a href="" class="btn btn-dark px-5 ms-3">
+        Buy Now
+        <img src="{% static 'images/shopping-cart.png'%}" height="25" width="25" class="ms-2 mb-1">
+    </a>
+</div>
+        {% else %}
+        <span class="text-danger fs-5 border border-dark p-2 rounded">Out Of Stock</span>
+        {% endif %}
+      </p>
+        </div>
+    </div>
+</section>
+</div>
+
+{% endblock %}

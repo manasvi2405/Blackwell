@@ -1,0 +1,62 @@
+{% extends 'base.html'%}
+{% load static %}
+{% block "content"%}
+
+<img src="{%static 'images/black.png'%}" alt="" class="w-100">
+
+<div id="categories">
+<div class="container py-5">
+  <div class="rounded-pill border border-light d-none d-md-block" style="background-color: rgba(128, 128, 128,0.4); height: 100px;" >
+    <h6 class="text-center text-uppercase display-6 pt-2 text-light" style="font-family: morlique;">Explore the heat</h6>
+    <p class="text-center fs-5 fw-bold text-light" style="font-family: morlique;">Elevate Your Look</p>
+  </div>
+  <div class="rounded-3 border border-light d-block d-md-none" style="background-color: rgba(128, 128, 128,0.4); height: 78px;" >
+    <h6 class="text-center text-uppercase display-6 pt-2 text-light fw-bold" style="font-family: morlique;">Explore the heat</h6>
+    <p class="text-center text-light" style="font-family: morlique;">Elevate Your Look</p>
+  </div>
+  <div class="category-wrapper position-relative">
+  <div class="category-slider pb-5 pt-5">
+    {% for category in categories %}
+    <div class="category-item text-center">
+      <a href="{% url 'shopbycategory' category.id%}">
+    <img src="{{category.image.url}}" alt="" class="rounded-circle circle-img img-fluid">
+    <h4 class="fw-bold text-center mt-4 text-uppercase text-light" id="smhead" style="font-family: morlique;">{{category.name}}</h4>
+     </a>
+  </div>
+{% endfor %}
+</div>
+<div class="scroll-arrow d-block d-md-none">
+    <i class="bi bi-chevron-right"></i>
+  </div>
+</div>
+</div>
+</div>
+
+<div id="products">
+  <section class="container py-2">
+    <h2 class="text-uppercase text-center fw-bold text-light" style="font-family: morlique;">Top Sellers
+    </h2>
+    <div class="row py-5 g-4">
+      {% for product in products %}
+      <div class="col-6 col-md-3">
+        <a href="{% url 'product' product.id%}">
+        <div class="card h-100 product-card">
+  <img src="/media/{{product.image1}}" class="card-img-top product-img" alt="..." height="300">
+  <div class="card-body">
+    <h5 class="card-text text-start text-dark fw-bold" style="font-family: morlique;">{{product.name}}</h5>
+    <p class="text-start fs-5"><span class="text-dark">Rs. {{product.selling_price}}</span>
+      <small><del class="text-secondary">Rs. {{product.mrp}}</del></small>
+      <div class="text-end">
+    <a href="{% url 'add_to_cart' product.id %}"><img src="{% static 'images/cartt.png'%}" alt=""></a>
+    </div>
+    </p>
+  </div>
+</div>
+</a>
+      </div>
+      {% endfor %}
+    </div>
+  </section>
+</div>
+
+{% endblock %}

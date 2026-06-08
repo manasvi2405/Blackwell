@@ -1,0 +1,19 @@
+{% load static%}
+<div class="topbar bg-dark">
+    <div class="d-flex align-items-center">
+    <button class="btn btn-light btn-outline-dark" id="toggleSidebar"><i class="bi bi-list"></i></button>
+    <div class="bg-theme-light rounded-circle p-1" style="margin-left: 600px;">
+        </div>
+            <h3 class="text-center ms-2 mt-1"><a href="{% url 'home'%}" class="text-light" style="font-family: Witchwoode;">BlackWell</a></h3>
+    </div>
+</div>
+    <!-- <div class="d-flex align-items-center">{% include 'logout_form.html'%}</div> -->
+    </div>
+    <div class="sidebar bg-dark" id="sidebar" style="padding-top: 90px;">
+        <button class="close-btn text-light" id="closeSidebar">✖</button>
+    <a href="{%url 'home'%}" class="text-light ps-2"><i class="bi bi-house-fill"></i><span style="font-size: medium;"> Home</span></a>
+    <a href="{%url 'home'%}" class="text-light ps-2"><i class="bi bi-paperclip"></i><span style="font-size: medium;"> Dashboard</span></a>
+    <a href="{%url 'password_change'%}" class="ps-2"><img src="{% static 'images/lock.png' %}" alt="" height="18" width="18"><span class="ms-2 text-light" style="font-size: medium;">Change Password</span></a>
+    <a href="{%url 'listaddress'%}" class="text-light ps-2"><i class="bi bi-geo-alt-fill"></i><span style="font-size: medium;"> Manage Address</span></a>   
+    <a href="{%url 'order_history'%}" class="text-light ps-2"><i class="bi bi-list-stars"></i><span style="font-size: medium;"> My Orders</span></a>
+</div>
