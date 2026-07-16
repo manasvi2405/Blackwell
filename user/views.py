@@ -9,6 +9,7 @@ from .forms import AddressForm,AccountForm,ProfileForm
 from .models import Address,Order
 from django.contrib.auth.decorators import login_required
 from django.core.paginator import Paginator
+from django.conf import settings
 
 
 # Create your views here.
@@ -27,9 +28,9 @@ class SignUp(CreateView):
         user = form.save()  # Save the user object
         subject = 'Welcome to BlackWell!'
         message = f'Hi {user.username}, welcome to our community!'
-        from_email = "mehramanasvii718@gmail.com"
+        from_email = settings.DEFAULT_FROM_EMAIL
         recipient_list =[user.email]
-        send_mail(subject, message, from_email, recipient_list)
+        send_mail(subject, message, from_email, recipient_list,fail_silently=True)
         return super().form_valid(form)
     
 class add_address(SuccessMessageMixin,CreateView):
